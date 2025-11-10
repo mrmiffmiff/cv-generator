@@ -1,1 +1,4 @@
-/* When project begins we want only CSS to be from normalizer. */
+:root {
+    background-color: #f5f3ef;
+    /* General background color off-white so that CV area is distinguishable */
+}
