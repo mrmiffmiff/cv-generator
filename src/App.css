@@ -1,1 +1,28 @@
-/* When project begins we want only CSS to be from normalizer. */
+.app-shell {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem clamp(1rem, 4vw, 4rem);
+    background-color: inherit;
+    min-height: 100vh;
+
+}
+
+.form-side {
+    flex: 1 1 45%;
+}
+
+.preview-side {
+    flex: 1 1 55%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.preview-page {
+    width: min(100%, 720px);
+    min-height: 80vh;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 15px 35px rgba(15, 9, 0, 0.12);
+    padding: 2rem;
+}
