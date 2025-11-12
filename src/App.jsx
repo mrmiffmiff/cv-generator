@@ -4,6 +4,15 @@ import FormSection from './components/FormSection'
 
 function App() {
   const [openSection, setOpenSection] = useState('pInfo');
+  const defaultPersonalInfo = {
+    name: '',
+    email: '',
+    phone: '',
+    linkedin: '',
+    title: '',
+    location: '',
+  };
+  const [personalInfo, setPersonalInfo] = useState(defaultPersonalInfo);
 
   return (
     <div className='app-shell'>
