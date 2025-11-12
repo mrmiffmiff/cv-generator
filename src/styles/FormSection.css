@@ -1,0 +1,34 @@
+.form-section {
+    border-radius: 0.75rem;
+    border: 1px solid black;
+    background-color: #fffdf8;
+    box-shadow: 0 5px 16px rgba(23, 15, 0, 0.05);
+    overflow: hidden;
+}
+
+.form-section-header {
+    all: unset;
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.form-section-caret {
+    display: inline-block;
+    width: 25px;
+    transition: transform 150ms ease;
+}
+
+.form-section.open .form-section-caret {
+    transform: rotate(180deg);
+}
+
+.form-section-body {
+    padding: 1rem 1.25rem 1.5rem;
+}
