@@ -1,16 +1,17 @@
 import { useState } from 'react'
 import './styles/App.css'
 import FormSection from './components/FormSection'
+import PersonalInfoInput from './components/PersonalInfoInput';
 
 function App() {
   const [openSection, setOpenSection] = useState('pInfo');
   const defaultPersonalInfo = {
-    name: '',
-    email: '',
-    phone: '',
-    linkedin: '',
-    title: '',
-    location: '',
+    'name': 'Robert Eisenman',
+    'email': '',
+    'phone': '',
+    'linkedin': '',
+    'title': '',
+    'location': '',
   };
   const [personalInfo, setPersonalInfo] = useState(defaultPersonalInfo);
 
@@ -29,7 +30,10 @@ function App() {
             openSection={openSection}
             setSection={setOpenSection}
           >
-            <p>This will be where I put all things related to personal info but I need this as a test for now.</p>
+            <PersonalInfoInput
+              piData={personalInfo}
+              setDataFunction={setPersonalInfo}
+            />
           </FormSection>
           <FormSection
             id='experience'
@@ -52,7 +56,7 @@ function App() {
       {/*Then after all the forms we need to have on the right side the actual resume preview.*/}
       <section className='preview-side'>
         <div className='preview-page'>
-
+          <h2>{personalInfo['name']}</h2>
         </div>
       </section>
     </div>

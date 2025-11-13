@@ -2,7 +2,7 @@ export default function FormInput({ type, labelText, name, val, autoUpdate, upda
     if (type === 'text') {
         return (
             <label>
-                {labelText}:
+                {labelText}:&nbsp;
                 <input
                     type='text'
                     name={name}
