@@ -8,13 +8,54 @@ export default function PersonalInfoInput({ piData, setDataFunction }) {
     }
 
     return (
-        <FormInput
-            type='text'
-            labelText='Full Name'
-            name='name'
-            val={piData['name']}
-            autoUpdate={true}
-            updateMethod={setDataForField}
-        />
+        <>
+            <FormInput
+                type='text'
+                labelText='Full Name'
+                name='name'
+                val={piData['name']}
+                updateMethod={setDataForField}
+            />
+            <br />
+            <FormInput
+                type='text'
+                labelText='Job Title'
+                name='title'
+                val={piData['title']}
+                updateMethod={setDataForField}
+            />
+            <br />
+            <FormInput
+                type='email'
+                labelText='Email Address'
+                name='email'
+                val={piData['email']}
+                updateMethod={setDataForField}
+            />
+            <br />
+            <FormInput
+                type='tel'
+                labelText='Phone Number'
+                name='phone'
+                val={piData['phone']}
+                updateMethod={setDataForField}
+            />
+            <br />
+            <FormInput
+                type='url'
+                labelText='LinkedIn Profile'
+                name='linkedin'
+                val={piData['linkedin']}
+                updateMethod={setDataForField}
+            />
+            <br />
+            <FormInput
+                type='textarea'
+                labelText='Professional Summary'
+                name='summary'
+                val={piData['summary']}
+                updateMethod={setDataForField}
+            />
+        </>
     );
 }

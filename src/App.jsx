@@ -7,11 +7,11 @@ function App() {
   const [openSection, setOpenSection] = useState('pInfo');
   const defaultPersonalInfo = {
     'name': 'Robert Eisenman',
+    'title': '',
     'email': '',
     'phone': '',
     'linkedin': '',
-    'title': '',
-    'location': '',
+    'summary': '',
   };
   const [personalInfo, setPersonalInfo] = useState(defaultPersonalInfo);
 
@@ -56,7 +56,9 @@ function App() {
       {/*Then after all the forms we need to have on the right side the actual resume preview.*/}
       <section className='preview-side'>
         <div className='preview-page'>
-          <h2>{personalInfo['name']}</h2>
+          {Object.entries(personalInfo).map(([info]) => (
+            <p>{personalInfo[info]}</p>
+          ))}
         </div>
       </section>
     </div>

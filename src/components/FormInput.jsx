@@ -1,15 +1,27 @@
-export default function FormInput({ type, labelText, name, val, autoUpdate, updateMethod }) {
-    if (type === 'text') {
+export default function FormInput({ type, labelText, name, val, updateMethod }) {
+    const commonProps = {
+        name,
+        value: val,
+        onChange: updateMethod
+    };
+
+    if (type === 'textarea') {
         return (
             <label>
-                {labelText}:&nbsp;
-                <input
-                    type='text'
-                    name={name}
-                    value={val}
-                    onChange={autoUpdate ? updateMethod : null}
-                />
+                {labelText}:
+                <br />
+                <textarea {...commonProps} />
             </label>
-        );
+        )
     }
+
+    return (
+        <label>
+            {labelText}:&nbsp;
+            <input
+                type={type}
+                {...commonProps}
+            />
+        </label>
+    );
 }
