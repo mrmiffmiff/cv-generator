@@ -20,6 +20,7 @@ export default function FormInput({ type, labelText, name, val, updateMethod }) 
             {labelText}:&nbsp;
             <input
                 type={type}
+                placeholder={labelText}
                 {...commonProps}
             />
         </label>

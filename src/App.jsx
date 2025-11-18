@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState, Fragment } from 'react'
 import './styles/App.css'
 import FormSection from './components/FormSection'
 import PersonalInfoInput from './components/PersonalInfoInput';
+import EducationList from './components/EducationList';
 
 function App() {
   const [openSection, setOpenSection] = useState('pInfo');
@@ -14,6 +15,7 @@ function App() {
     'summary': '',
   };
   const [personalInfo, setPersonalInfo] = useState(defaultPersonalInfo);
+  const [educations, setEducations] = useState([]);
 
   return (
     <div className='app-shell'>
@@ -49,7 +51,10 @@ function App() {
             openSection={openSection}
             setSection={setOpenSection}
           >
-            <p>Last bit of testing text.</p>
+            <EducationList
+              educations={educations}
+              updateEducationsList={setEducations}
+            />
           </FormSection>
         </div>
       </section>
@@ -58,6 +63,13 @@ function App() {
         <div className='preview-page'>
           {Object.entries(personalInfo).map(([info]) => (
             <p>{personalInfo[info]}</p>
+          ))}
+          {educations.map(edu => (
+            <Fragment key={edu.id}>
+              {Object.entries(edu).map(([info]) => (
+                <p>{edu[info]}</p>
+              ))}
+            </Fragment>
           ))}
         </div>
       </section>
