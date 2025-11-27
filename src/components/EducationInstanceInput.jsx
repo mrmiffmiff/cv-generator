@@ -30,6 +30,20 @@ export default function EducationInstanceInput({ eduObj, setDataFunction, closeF
                 val={eduObj['focus']}
                 updateMethod={setDataForField}
             />
+            <FormInput
+                type='date'
+                labelText='Start Date'
+                name='startDate'
+                val={eduObj['startDate']}
+                updateMethod={setDataForField}
+            />
+            <FormInput
+                type='date'
+                labelText='End Date'
+                name='endDate'
+                val={eduObj['endDate']}
+                updateMethod={setDataForField}
+            />
             <button
                 type="button"
                 onClick={closeFunction}

@@ -8,6 +8,8 @@ export default function EducationList({ educations, updateEducationsList }) {
         'schoolName': '',
         'degree': '',
         'focus': '',
+        'startDate': '',
+        'endDate': '',
     };
 
     function closeOpenEducation() {
