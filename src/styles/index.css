@@ -1,4 +1,7 @@
 :root {
     background-color: #f5f3ef;
     /* General background color off-white so that CV area is distinguishable */
+    --form-field-border-color: #d1d5db;
+    --form-field-focused-border-color: #2563eb;
+    --form-field-placeholder-color: #6b7280;
 }

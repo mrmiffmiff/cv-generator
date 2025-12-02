@@ -1,0 +1,36 @@
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 16px;
+}
+
+.form-label {
+    font-weight: 600;
+}
+
+.form-control {
+    padding: 10px 12px;
+    border: 1px solid var(--form-field-border-color);
+    border-radius: 8px;
+    background-color: white;
+    font-size: 14px;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    width: 100%;
+    max-width: 300px;
+}
+
+textarea.form-control {
+    max-width: none;
+    min-height: 120px;
+}
+
+.form-control:focus {
+    border-color: var(--form-field-focused-border-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.form-control::placeholder {
+    color: var(--form-field-placeholder-color);
+}

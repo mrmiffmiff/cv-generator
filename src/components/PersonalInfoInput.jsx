@@ -16,7 +16,6 @@ export default function PersonalInfoInput({ piData, setDataFunction }) {
                 val={piData['name']}
                 updateMethod={setDataForField}
             />
-            <br />
             <FormInput
                 type='text'
                 labelText='Job Title'
@@ -24,7 +23,6 @@ export default function PersonalInfoInput({ piData, setDataFunction }) {
                 val={piData['title']}
                 updateMethod={setDataForField}
             />
-            <br />
             <FormInput
                 type='email'
                 labelText='Email Address'
@@ -32,7 +30,6 @@ export default function PersonalInfoInput({ piData, setDataFunction }) {
                 val={piData['email']}
                 updateMethod={setDataForField}
             />
-            <br />
             <FormInput
                 type='tel'
                 labelText='Phone Number'
@@ -40,7 +37,6 @@ export default function PersonalInfoInput({ piData, setDataFunction }) {
                 val={piData['phone']}
                 updateMethod={setDataForField}
             />
-            <br />
             <FormInput
                 type='url'
                 labelText='LinkedIn Profile'
@@ -48,7 +44,6 @@ export default function PersonalInfoInput({ piData, setDataFunction }) {
                 val={piData['linkedin']}
                 updateMethod={setDataForField}
             />
-            <br />
             <FormInput
                 type='textarea'
                 labelText='Professional Summary'

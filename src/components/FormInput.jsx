@@ -1,28 +1,27 @@
-export default function FormInput({ type, labelText, name, val, updateMethod }) {
+import '../styles/FormInput.css'
+
+export default function FormInput({ type, labelText, name, val, updateMethod, className = '' }) {
     const commonProps = {
         name,
         value: val,
         onChange: updateMethod
     };
 
-    if (type === 'textarea') {
-        return (
-            <label>
-                {labelText}:
-                <br />
-                <textarea {...commonProps} />
-            </label>
-        )
-    }
+    const isTextArea = type === 'textarea';
 
     return (
-        <label>
-            {labelText}:&nbsp;
-            <input
-                type={type}
-                placeholder={labelText}
-                {...commonProps}
-            />
+        <label className={`form-field ${className}`}>
+            <span className="form-label">{labelText}: </span>
+            {isTextArea ? (
+                <textarea className="form-control" {...commonProps} />
+            ) : (
+                <input
+                    className="form-control"
+                    type={type}
+                    placeholder={labelText}
+                    {...commonProps}
+                />
+            )}
         </label>
     );
 }
