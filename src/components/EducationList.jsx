@@ -18,6 +18,26 @@ export default function EducationList({ educations, updateEducationsList }) {
         setShowSpecificEducation(null);
     }
 
+    function moveItem(array, fromIndex, toIndex) {
+        const copy = [...array];
+        const [moved] = copy.splice(fromIndex, 1);
+        copy.splice(toIndex, 0, moved);
+        return copy;
+    }
+
+    function reorder(fromIndex, toIndex) {
+        const newList = moveItem(educations, fromIndex, toIndex);
+        updateEducationsList(newList);
+    }
+
+    function moveEducationUp(index) {
+        reorder(index, index - 1);
+    }
+
+    function moveEducationDown(index) {
+        reorder(index, index + 1);
+    }
+
     function deleteEducation(id) {
         const newList = educations.filter(education => education.id !== id);
         updateEducationsList(newList);
@@ -58,14 +78,36 @@ export default function EducationList({ educations, updateEducationsList }) {
                                         : 'Tap to add details'}
                                 </span>
                             </button>
-                            <button
-                                type="button"
-                                className="entry-delete-button"
-                                onClick={() => deleteEducation(obj.id)}
-                                aria-label={`Delete ${obj['schoolName'] || 'education entry'}`}
-                            >
-                                ×
-                            </button>
+                            <div className="entry-actions" aria-label="Entry actions">
+                                <div className="entry-move-group">
+                                    <button
+                                        type="button"
+                                        className="entry-move-button"
+                                        onClick={() => moveEducationUp(index)}
+                                        disabled={index === 0}
+                                        aria-label={`Move ${obj['schoolName'] || 'education entry'} up`}
+                                    >
+                                        ↑
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className="entry-move-button"
+                                        onClick={() => moveEducationDown(index)}
+                                        disabled={index === educations.length - 1}
+                                        aria-label={`Move ${obj['schoolName'] || 'education entry'} down`}
+                                    >
+                                        ↓
+                                    </button>
+                                </div>
+                                <button
+                                    type="button"
+                                    className="entry-delete-button"
+                                    onClick={() => deleteEducation(obj.id)}
+                                    aria-label={`Delete ${obj['schoolName'] || 'education entry'}`}
+                                >
+                                    ×
+                                </button>
+                            </div>
                         </div>
                     ))}
                 </div>

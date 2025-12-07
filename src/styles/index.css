@@ -6,4 +6,5 @@
     --form-field-placeholder-color: #6b7280;
     --form-background-color: #fffdf8;
     --form-border-color: black;
+    box-sizing: border-box;
 }

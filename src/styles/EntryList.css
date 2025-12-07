@@ -29,6 +29,56 @@
     overflow: hidden;
 }
 
+.entry-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    border-left: 1px solid #e5e7eb;
+    background: linear-gradient(135deg, #f8fafc, #ffffff);
+    min-width: 48px;
+}
+
+.entry-move-group {
+    display: flex;
+    flex: 1;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.entry-move-button {
+    border: none;
+    background-color: #e0e7ff;
+    color: #312e81;
+    padding: 6px 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 120ms ease, color 120ms ease, transform 120ms ease;
+}
+
+.entry-move-button+.entry-move-button {
+    border-left: 1px solid #cbd5e1;
+}
+
+.entry-move-button:hover:not(:disabled) {
+    background-color: #c7d2fe;
+    transform: translateY(-1px);
+}
+
+.entry-move-button:disabled {
+    background-color: #f8fafc;
+    color: #cbd5e1;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.entry-move-button:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: -2px;
+}
+
 .entry-button {
     all: unset;
     box-sizing: border-box;
@@ -68,11 +118,12 @@
     padding: 0 14px;
     display: flex;
     align-items: center;
+    justify-content: center;
     font-weight: 800;
     font-size: 1rem;
     cursor: pointer;
-    border-left: 1px solid #fca5a5;
     transition: background-color 120ms ease, color 120ms ease;
+    flex: 1;
 }
 
 .entry-delete-button:hover {
@@ -124,10 +175,21 @@
         flex-direction: column;
     }
 
-    .entry-delete-button {
+    .entry-actions {
+        flex-direction: row;
         border-left: none;
-        border-top: 1px solid #fca5a5;
-        justify-content: flex-end;
+        border-top: 1px solid #e5e7eb;
+    }
+
+    .entry-move-group {
+        flex: 1;
+        border-bottom: none;
+        border-right: 1px solid #e5e7eb;
+    }
+
+    .entry-delete-button {
+        border-top: none;
+        justify-content: center;
         padding: 10px 14px;
     }
 }
