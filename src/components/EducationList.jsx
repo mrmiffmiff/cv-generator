@@ -10,6 +10,7 @@ export default function EducationList({ educations, updateEducationsList }) {
         'focus': '',
         'startDate': '',
         'endDate': '',
+        'current': false,
     };
 
     function closeOpenEducation() {

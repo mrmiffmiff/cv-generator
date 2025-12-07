@@ -1,12 +1,18 @@
 import '../styles/FormInput.css'
 
-export default function FormInput({ type, labelText, name, val, updateMethod, className = '' }) {
-    const commonProps = {
-        name,
-        value: val,
-        onChange: updateMethod
-    };
+export default function FormInput({ type, labelText, name, val, updateMethod, className = '', disabled = false }) {
+    const baseProps = { name, onChange: updateMethod, disabled };
 
+    if (type === 'checkbox') {
+        return (
+            <label className={`form-field ${className}`}>
+                <span className='form-label'>{labelText}</span>
+                <input type='checkbox' checked={!!val} {...baseProps} />
+            </label>
+        );
+    }
+
+    const commonProps = { ...baseProps, value: val };
     const isTextArea = type === 'textarea';
 
     return (

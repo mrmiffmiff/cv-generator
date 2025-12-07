@@ -34,3 +34,11 @@ textarea.form-control {
 .form-control::placeholder {
     color: var(--form-field-placeholder-color);
 }
+
+.form-control:disabled {
+    background-color: #f3f4f6;
+    border-color: #d1d5db;
+    color: #6b7280;
+    cursor: not-allowed;
+    box-shadow: none;
+}

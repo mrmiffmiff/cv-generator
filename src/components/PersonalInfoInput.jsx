@@ -1,4 +1,5 @@
 import FormInput from "./FormInput";
+import '../styles/InfoInputDetails.css';
 
 export default function PersonalInfoInput({ piData, setDataFunction }) {
     function setDataForField(e) {
@@ -8,7 +9,7 @@ export default function PersonalInfoInput({ piData, setDataFunction }) {
     }
 
     return (
-        <>
+        <div className="infoDetails">
             <FormInput
                 type='text'
                 labelText='Full Name'
@@ -23,27 +24,29 @@ export default function PersonalInfoInput({ piData, setDataFunction }) {
                 val={piData['title']}
                 updateMethod={setDataForField}
             />
-            <FormInput
-                type='email'
-                labelText='Email Address'
-                name='email'
-                val={piData['email']}
-                updateMethod={setDataForField}
-            />
-            <FormInput
-                type='tel'
-                labelText='Phone Number'
-                name='phone'
-                val={piData['phone']}
-                updateMethod={setDataForField}
-            />
-            <FormInput
-                type='url'
-                labelText='LinkedIn Profile'
-                name='linkedin'
-                val={piData['linkedin']}
-                updateMethod={setDataForField}
-            />
+            <div className="internalFormGroup">
+                <FormInput
+                    type='email'
+                    labelText='Email Address'
+                    name='email'
+                    val={piData['email']}
+                    updateMethod={setDataForField}
+                />
+                <FormInput
+                    type='tel'
+                    labelText='Phone Number'
+                    name='phone'
+                    val={piData['phone']}
+                    updateMethod={setDataForField}
+                />
+                <FormInput
+                    type='url'
+                    labelText='LinkedIn Profile'
+                    name='linkedin'
+                    val={piData['linkedin']}
+                    updateMethod={setDataForField}
+                />
+            </div>
             <FormInput
                 type='textarea'
                 labelText='Professional Summary'
@@ -51,6 +54,6 @@ export default function PersonalInfoInput({ piData, setDataFunction }) {
                 val={piData['summary']}
                 updateMethod={setDataForField}
             />
-        </>
+        </div>
     );
 }
