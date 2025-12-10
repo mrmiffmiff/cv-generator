@@ -1,3 +1,17 @@
+:root {
+    --form-focus-box-shadow-color: rgba(37, 99, 235, 0.15);
+    --disabled-control-background-color: #f3f4f6;
+    --disabled-control-border-color: #d1d5db;
+    --disabled-control-color: #6b7280;
+
+    @media (prefers-color-scheme: dark) {
+        --form-focus-box-shadow-color: rgba(96, 165, 250, 0.35);
+        --disabled-control-background-color: #1f2937;
+        --disabled-control-border-color: #334155;
+        --disabled-control-color: #9ca3af;
+    }
+}
+
 .form-field {
     display: flex;
     flex-direction: column;
@@ -13,11 +27,12 @@
     padding: 10px 12px;
     border: 1px solid var(--form-field-border-color);
     border-radius: 8px;
-    background-color: white;
+    background-color: var(--form-background-color);
     font-size: 14px;
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
     width: 100%;
     max-width: 300px;
+    color: var(--regular-text)
 }
 
 textarea.form-control {
@@ -28,7 +43,7 @@ textarea.form-control {
 .form-control:focus {
     border-color: var(--form-field-focused-border-color);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    box-shadow: 0 0 0 3px var(--form-focus-box-shadow-color);
 }
 
 .form-control::placeholder {
@@ -36,9 +51,9 @@ textarea.form-control {
 }
 
 .form-control:disabled {
-    background-color: #f3f4f6;
-    border-color: #d1d5db;
-    color: #6b7280;
+    background-color: var(--disabled-control-background-color);
+    border-color: var(--disabled-control-border-color);
+    color: var(--disabled-control-color);
     cursor: not-allowed;
     box-shadow: none;
 }

@@ -1,3 +1,13 @@
+:root {
+    --preview-background-color: white;
+    --preview-box-shadow-color: rgba(15, 9, 0, 0.12);
+
+    @media (prefers-color-scheme: dark) {
+        --preview-background-color: #111827;
+        --preview-box-shadow-color: rgba(0, 0, 0, 0.45);
+    }
+}
+
 .app-shell {
     display: flex;
     gap: 2rem;
@@ -27,8 +37,8 @@
 .preview-page {
     width: min(100%, 720px);
     min-height: 85vh;
-    background-color: white;
+    background-color: var(--preview-background-color);
     border-radius: 1rem;
-    box-shadow: 0 15px 35px rgba(15, 9, 0, 0.12);
+    box-shadow: 0 15px 35px var(--preview-box-shadow-color);
     padding: 2rem;
 }

@@ -1,4 +1,5 @@
 :root {
+    box-sizing: border-box;
     background-color: #f5f3ef;
     /* General background color off-white so that CV area is distinguishable */
     --form-field-border-color: #d1d5db;
@@ -6,5 +7,27 @@
     --form-field-placeholder-color: #6b7280;
     --form-background-color: #fffdf8;
     --form-border-color: black;
-    box-sizing: border-box;
+    --regular-text: #111827;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #0c1220;
+        --form-field-border-color: #334155;
+        --form-field-focused-border-color: #60a5fa;
+        --form-field-placeholder-color: #9ca3af;
+        --form-background-color: #111827;
+        --form-border-color: #1f2937;
+        --regular-text: #e5e7eb;
+    }
+}
+
+p,
+label,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+    color: var(--regular-text);
 }

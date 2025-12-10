@@ -1,8 +1,16 @@
+:root {
+    --form-section-box-shadow-color: rgba(23, 15, 0, 0.05);
+
+    @media (prefers-color-scheme: dark) {
+        --form-section-box-shadow-color: rgba(0, 0, 0, 0.35)
+    }
+}
+
 .form-section {
     border-radius: 0.75rem;
     border: 1px solid var(--form-border-color);
     background-color: var(--form-background-color);
-    box-shadow: 0 5px 16px rgba(23, 15, 0, 0.05);
+    box-shadow: 0 5px 16px var(--form-section-box-shadow-color);
     overflow: hidden;
 }
 
