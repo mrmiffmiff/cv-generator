@@ -3,6 +3,7 @@ import './styles/App.css'
 import FormSection from './components/FormSection'
 import PersonalInfoInput from './components/PersonalInfoInput';
 import EducationList from './components/EducationList';
+import ExperienceList from './components/ExperienceList';
 
 function App() {
   const [openSection, setOpenSection] = useState('pInfo');
@@ -16,6 +17,7 @@ function App() {
   };
   const [personalInfo, setPersonalInfo] = useState(defaultPersonalInfo);
   const [educations, setEducations] = useState([]);
+  const [experiences, setExperiences] = useState([]);
 
   return (
     <div className='app-shell'>
@@ -43,7 +45,10 @@ function App() {
             openSection={openSection}
             setSection={setOpenSection}
           >
-            <p>More testing text.</p>
+            <ExperienceList
+              experiences={experiences}
+              updateExperiencesList={setExperiences}
+            />
           </FormSection>
           <FormSection
             id='education'
@@ -63,6 +68,13 @@ function App() {
         <div className='preview-page'>
           {Object.entries(personalInfo).map(([info]) => (
             <p>{personalInfo[info]}</p>
+          ))}
+          {experiences.map(exp => (
+            <Fragment key={exp.id}>
+              {Object.entries(exp).map(([info]) => (
+                <p>{exp[info]}</p>
+              ))}
+            </Fragment>
           ))}
           {educations.map(edu => (
             <Fragment key={edu.id}>
