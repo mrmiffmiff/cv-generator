@@ -19,6 +19,8 @@ function App() {
   const [educations, setEducations] = useState([]);
   const [experiences, setExperiences] = useState([]);
 
+  const contacts = [personalInfo['email'], personalInfo['phone'], personalInfo['linkedin']].filter(Boolean);
+
   return (
     <div className='app-shell'>
       <section className='form-side'>
@@ -66,23 +68,33 @@ function App() {
       {/*Then after all the forms we need to have on the right side the actual resume preview.*/}
       <section className='preview-side'>
         <div className='preview-page'>
-          {Object.entries(personalInfo).map(([info]) => (
-            <p>{personalInfo[info]}</p>
-          ))}
-          {experiences.map(exp => (
-            <Fragment key={exp.id}>
-              {Object.entries(exp).map(([info]) => (
-                <p>{exp[info]}</p>
-              ))}
-            </Fragment>
-          ))}
-          {educations.map(edu => (
-            <Fragment key={edu.id}>
-              {Object.entries(edu).map(([info]) => (
-                <p>{edu[info]}</p>
-              ))}
-            </Fragment>
-          ))}
+          <div className="preview-header">
+            <h1>{personalInfo['name']}</h1>
+            <h2>{personalInfo['title']}</h2>
+          </div>
+          <div className="preview-contacts">
+            {contacts.map((item, index) => (
+              <Fragment key={index}>
+                {index > 0 && <span aria-hidden>•</span>}
+                <span>{item}</span>
+              </Fragment>
+            ))}
+          </div>
+          <hr className="preview-divider" />
+          <section className="preview-section">
+            <h3 className='preview-section-title'>Professional Summary</h3>
+            <p className="preview-summary">
+              {personalInfo.summary}
+            </p>
+          </section>
+          <hr className="preview-divider" />
+          <section className="preview-section">
+            <h3 className="preview-section-title">Experience</h3>
+          </section>
+          <hr className="preview-divider" />
+          <section className="preview-section">
+            <h3 className="preview-section-title">Education</h3>
+          </section>
         </div>
       </section>
     </div>
