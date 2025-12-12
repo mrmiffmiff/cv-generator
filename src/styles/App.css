@@ -96,3 +96,40 @@
     line-height: 1.6;
     white-space: pre-wrap;
 }
+
+.experience-block,
+.education-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.experience-head,
+.education-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.experience-org,
+.education-school {
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
+
+.dates {
+    font-size: 0.9rem;
+}
+
+.experience-title {
+    font-weight: 600;
+}
+
+.experience-description {
+    margin: 0;
+    line-height: 1.4;
+}
+
+.cred-info {
+    font-size: small;
+}

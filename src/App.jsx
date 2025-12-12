@@ -20,6 +20,14 @@ function App() {
   const [experiences, setExperiences] = useState([]);
 
   const contacts = [personalInfo['email'], personalInfo['phone'], personalInfo['linkedin']].filter(Boolean);
+  const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' });
+
+  function formatDate(value) {
+    if (!value) return '';
+    const parsed = new Date(value);
+    if (Number.isNaN(parsed)) return '';
+    return dateFormatter.format(parsed);
+  }
 
   return (
     <div className='app-shell'>
@@ -90,10 +98,40 @@ function App() {
           <hr className="preview-divider" />
           <section className="preview-section">
             <h3 className="preview-section-title">Experience</h3>
+            {experiences.map((experience) => (
+              <div className='experience-block' key={experience.id}>
+                <div className='experience-head'>
+                  <span className='experience-org'>{experience['orgName']}</span>
+                  <span className='dates'>
+                    {[formatDate(experience['startDate']), experience['current'] ? 'Present' : formatDate(experience['endDate'])].filter(Boolean).join(' - ')}
+                  </span>
+                </div>
+                <p className="experience-title">{experience['title']}</p>
+                <p className="experience-description">{experience['description']}</p>
+              </div>
+            ))}
           </section>
           <hr className="preview-divider" />
           <section className="preview-section">
             <h3 className="preview-section-title">Education</h3>
+            {educations.map((education) => (
+              <div className='education-block' key={education.id}>
+                <div className="education-head">
+                  <span className="education-school">{education['schoolName']}</span>
+                  <span className='dates'>
+                    {[formatDate(education['startDate']), education['current'] ? 'Present' : formatDate(education['endDate'])].filter(Boolean).join(' - ')}
+                  </span>
+                </div>
+                <div className='cred-info'>
+                  {[education['degree'], education['focus']].map((item, index) => (
+                    <Fragment key={index}>
+                      {index > 0 && <span aria-hidden>•</span>}
+                      <span>{item}</span>
+                    </Fragment>
+                  ))}
+                </div>
+              </div>
+            ))}
           </section>
         </div>
       </section>
